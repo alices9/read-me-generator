@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [{
@@ -39,9 +40,9 @@ const questions = [{
     name: "email"
 },
 {
-    type: "input",
+    type: "checkbox",
     message: "Did you have any collaborators?",
-    choiced: ["Yes", "No"],
+    choices: ["Yes", "No"],
     name: "collaborators"
 },
 {
@@ -50,9 +51,9 @@ const questions = [{
     name: "collabURL"
 },
 {
-    type: "input",
+    type: "checkbox",
     message: "Which license did you use if any?",
-    choices: [],
+    choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"],
     name: "license"
 }
 ];
