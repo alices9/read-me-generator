@@ -10,7 +10,11 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) { }
+function renderLicenseSection(license) { 
+  return `## License
+  
+  I used the ${data.license} license for this project.`
+}
 
 function renderCollaborators(collaborators) {
   if (collaborators !== "No"){
@@ -33,7 +37,7 @@ ${data.description1} ${data.description2}
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-${renderLicenseLink}
+${renderLicenseLink(data.license)}
 
 ## Installation
 
@@ -45,22 +49,11 @@ ${data.usage}
 
 ${renderCollaborators(data.collaborators)}
 
-// ## License
-
-// The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+${renderLicenseSection(data.license)}
 
 ## Questions
 
 My GitHub username is <a href="github.com/${data.username} target="_blank"> ${data.username}</a>. If you have any questions, feel free to send me an email at ${data.email}.
-// WHEN I enter my GitHub username
-// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-// WHEN I enter my email address
-// THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-
-
-
-
-
     `;
 }
 
