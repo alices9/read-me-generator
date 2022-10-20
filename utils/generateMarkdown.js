@@ -53,7 +53,7 @@ ${renderLicenseSection(data.license)}
 
 ## Questions
 
-My GitHub username is <a href="github.com/${data.username} target="_blank"> ${data.username}</a>. If you have any questions, feel free to send me an email at ${data.email}.
+My GitHub username is <a href="github.com/${data.username}" target="_blank"> ${data.username}</a>. If you have any questions, feel free to send me an email at ${data.email}.
     `;
 }
 
