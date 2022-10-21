@@ -1,6 +1,16 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) { }
+function renderLicenseBadge(license) {
+  if (license[0] === "MIT"){
+    return `<img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license badge"/>`
+  } else if (license[0] === "APACHE 2.0"){
+    return `<img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="Apache 2.0 license badge">`
+  } else if (license[0] === "GPL 3.0"){
+    return `<img src="https://img.shields.io/badge/license-GPL-blue" alt="GPL license badge">`
+  } else if (license[0] === "BSD 3"){
+    return `<img src="https://img.shields.io/badge/License-BSD_3--Clause-orange.svg" alt="BSD license badge">`
+  }
+ }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -20,18 +30,22 @@ function renderLicenseSection(license) {
 }
 }
 
-function renderCollaborators(collaborators) {
+function confirmCollaborators(collaborators) {
   if (collaborators !== "No"){
-    return (`## Credits
-    
-    ${collaborators}`)
+    renderCollaborators(collaborators)
   }
 }
 
+function renderCollaborators(person) {
+  return `## Credits
+    
+  ${person}`
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+${renderLicenseBadge(data.license)}
 
 ## Description
 
@@ -52,7 +66,7 @@ ${data.installation}
 
 ${data.usage}
 
-${renderCollaborators(data.collaborators)}
+${confirmCollaborators(data.collaborators)}
 
 ${renderLicenseSection(data.license)}
 

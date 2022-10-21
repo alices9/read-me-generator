@@ -43,12 +43,14 @@ const questions = [{
     type: "checkbox",
     message: "Did you have any collaborators?",
     choices: ["Yes", "No"],
-    name: "collaborators"
+    name: "collaborators",
 },
 {
     type: "input",
-    message: "If yes, what are their GitHub URLs? Skip question if no.",
-    name: "collabURL"
+    message: "What are their GitHub URLs?",
+    name: "collabURL",
+    // Generate prompt only if user picks "Yes"
+    when: (choice) => choice.collaborators[0] === "Yes"
 },
 {
     type: "checkbox",
@@ -69,10 +71,10 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer
     .prompt(questions)
-    .then((response)=>
-    //console.log(response)
+    .then((response)=> {
+    console.log(response)
     writeToFile("test.md", generateMarkdown(response))
-    )
+})
 }
 
 // Function call to initialize app
